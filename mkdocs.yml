@@ -1,7 +1,7 @@
 site_name: MXUserBot Docs
 site_description: Документация MXUserbot — Matrix Userbot
 site_author: MXUserBot
-site_url: https://mxuserbot.github.io/MXUserbot
+site_url: https://mxuserbot.github.io/documentation/
 repo_url: https://github.com/MxUserBot/MXUserbot
 edit_uri: edit/main/docs/
 
