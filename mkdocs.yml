@@ -1,0 +1,114 @@
+site_name: MXUserBot Docs
+site_description: Документация MXUserbot — Matrix Userbot
+site_author: MXUserBot
+site_url: https://mxuserbot.github.io/MXUserbot
+repo_url: https://github.com/MxUserBot/MXUserbot
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+  features:
+    - navigation.tracking
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+plugins:
+  - search
+  - i18n:
+      docs_structure: folder
+      languages:
+        - locale: ru
+          default: true
+          name: Русский
+          build: true
+        - locale: en
+          name: English
+          build: true
+          nav_translations:
+            Главная: Home
+            Преимущества: Advantages
+            Системные модули: System Modules
+            PingPong: PingPong
+            Helper: Helper
+            Prefix: Prefix
+            Verifier: Verifier
+            Shell: Shell
+            Loader: Loader
+            Разработка модулей: Module Development
+            Как это работает: How It Works
+            Ключевые концепции: Key Concepts
+            SAS верификация: SAS Verification
+            Эмодзи коллбеки: Emoji Callbacks
+            Написание модулей: Writing Modules
+            Введение: Introduction
+            База: Basics
+            Команды: Commands
+            Ответы и утилиты: Answers & Utils
+            Watcher/Cron/Events: Watcher/Cron/Events
+            FSM: FSM
+            Безопасность: Security System
+            ZIP модули: ZIP Modules
+            Справочник utils: Utils Reference
+            MkDocs: MkDocs Setup
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - tables
+  - codehilite
+
+nav:
+  - Главная: index.md
+  - Преимущества: 6-pros-cons.md
+  - Системные модули:
+    - PingPong: system_modules/01-ping.md
+    - Helper: system_modules/02-help.md
+    - Prefix: system_modules/03-set_prefix.md
+    - Security: system_modules/04-sudo.md
+    - Verifier: system_modules/05-verif.md
+    - Shell: system_modules/06-shell.md
+    - Loader: system_modules/07-loader.md
+  - Разработка модулей:
+    - Как это работает: 2-how-it-works.md
+    - Ключевые концепции: 0-key-concepts.md
+    - SAS верификация: 1-sas-verification.md
+    - Эмодзи коллбеки: 3-emoji-callbacks.md
+    - Написание модулей:
+      - Введение: writing-modules/00-index.md
+      - База: writing-modules/01-basics.md
+      - Команды: writing-modules/02-commands.md
+      - Ответы и утилиты: writing-modules/03-answer.md
+      - Watcher/Cron/Events: writing-modules/04-watcher-cron-events.md
+      - FSM: writing-modules/05-fsm.md
+    - Безопасность: 5-security.md
+    - ZIP модули: writing-modules/7-zip-modules.md
+    - Справочник utils: writing-modules/8-utils-reference.md
+    - MkDocs: mkdocs-setup.md
