@@ -50,13 +50,6 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/6-pros-cons/"/>
     </url>
     <url>
-        <loc>https://mxuserbot.github.io/documentation/mkdocs-setup/</loc>
-        <lastmod>2026-05-11</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/mkdocs-setup/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/mkdocs-setup/"/>
-    </url>
-    <url>
         <loc>https://mxuserbot.github.io/documentation/system_modules/01-ping/</loc>
         <lastmod>2026-05-11</lastmod>
         <changefreq>daily</changefreq>
@@ -209,13 +202,6 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/6-pros-cons/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/6-pros-cons/"/>
-    </url>
-    <url>
-        <loc>https://mxuserbot.github.io/documentation/en/mkdocs-setup/</loc>
-        <lastmod>2026-05-11</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/mkdocs-setup/"/>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/mkdocs-setup/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/en/system_modules/01-ping/</loc>
