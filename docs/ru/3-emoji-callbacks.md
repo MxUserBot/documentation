@@ -170,3 +170,18 @@ markup = EmojiKeyBoard(
     data={"count": 0},
 )
 ```
+
+### 5. Редактирование с медиа
+
+При использовании `utils.answer()` с медиа (`Image`, `Video`, ...) и `reply_markup` — обязательно передавай `edit_id` явно, чтобы реакции прикрепились к видимому событию:
+
+```python
+# ❌ Неправильно — реакции уйдут на невидимый edit-event
+await utils.answer(mx, media=Image(url=url), reply_markup=markup)
+
+# ✅ Правильно — передаём edit_id редактируемого сообщения
+await utils.answer(mx, media=Image(url=url), edit_id=message_id, reply_markup=markup)
+```
+
+Иначе `EmojiKeyBoard` реакции окажутся на скрытом внутреннем событии и не будут видны на сообщении.
+```

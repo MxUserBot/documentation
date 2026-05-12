@@ -2342,9 +2342,10 @@
 <hr />
 <h2 id="_2">📝 Аргументы</h2>
 <h3 id="utilsget_args_rawmx-event-str"><code>utils.get_args_raw(mx, event) -&gt; str</code></h3>
-<p>Всё после имени команды. Если слов &gt;1 — аргументы, если 1 — пробует reply.</p>
+<p>Всё после имени команды.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">raw</span> <span class="o">=</span> <span class="k">await</span> <span class="n">utils</span><span class="o">.</span><span class="n">get_args_raw</span><span class="p">(</span><span class="n">mx</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span>
 </code></pre></div>
+<p><strong>Не полагайся</strong> на авто-получение реплая — если нужен текст сообщения, на которое ответил пользователь, используй <code>get_reply_event</code> / <code>get_reply_text</code> вручную.</p>
 <h3 id="utilsget_argsmx-event-list"><code>utils.get_args(mx, event) -&gt; list</code></h3>
 <p>То же, но <code>shlex.split()</code>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">args</span> <span class="o">=</span> <span class="k">await</span> <span class="n">utils</span><span class="o">.</span><span class="n">get_args</span><span class="p">(</span><span class="n">mx</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span>

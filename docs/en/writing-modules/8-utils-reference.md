@@ -111,11 +111,13 @@ result = await utils.request(
 
 ### `utils.get_args_raw(mx, event) -> str`
 
-Everything after the command name. If words >1 — arguments, if 1 — tries reply.
+Everything after the command name.
 
 ```python
 raw = await utils.get_args_raw(mx, event)
 ```
+
+Do **not** rely on automatic reply fetching — manually use `get_reply_event` / `get_reply_text` if you need the message the user replied to.
 
 ### `utils.get_args(mx, event) -> list`
 

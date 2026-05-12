@@ -170,3 +170,18 @@ markup = EmojiKeyBoard(
     data={"count": 0},
 )
 ```
+
+### 5. Editing with media
+
+When using `utils.answer()` with media (`Image`, `Video`, etc.) and `reply_markup`, always pass `edit_id` explicitly so reactions are attached to the visible event:
+
+```python
+# ❌ Wrong — reactions go to the invisible edit event
+await utils.answer(mx, media=Image(url=url), reply_markup=markup)
+
+# ✅ Correct — use edit_id of the message being edited
+await utils.answer(mx, media=Image(url=url), edit_id=message_id, reply_markup=markup)
+```
+
+This ensures `EmojiKeyBoard` reactions appear on the edited message, not on a hidden internal event.
+```

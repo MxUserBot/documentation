@@ -111,11 +111,13 @@ result = await utils.request(
 
 ### `utils.get_args_raw(mx, event) -> str`
 
-Всё после имени команды. Если слов >1 — аргументы, если 1 — пробует reply.
+Всё после имени команды.
 
 ```python
 raw = await utils.get_args_raw(mx, event)
 ```
+
+**Не полагайся** на авто-получение реплая — если нужен текст сообщения, на которое ответил пользователь, используй `get_reply_event` / `get_reply_text` вручную.
 
 ### `utils.get_args(mx, event) -> list`
 

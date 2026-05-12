@@ -2342,9 +2342,10 @@
 <hr />
 <h2 id="arguments">📝 Arguments</h2>
 <h3 id="utilsget_args_rawmx-event-str"><code>utils.get_args_raw(mx, event) -&gt; str</code></h3>
-<p>Everything after the command name. If words &gt;1 — arguments, if 1 — tries reply.</p>
+<p>Everything after the command name.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">raw</span> <span class="o">=</span> <span class="k">await</span> <span class="n">utils</span><span class="o">.</span><span class="n">get_args_raw</span><span class="p">(</span><span class="n">mx</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span>
 </code></pre></div>
+<p>Do <strong>not</strong> rely on automatic reply fetching — manually use <code>get_reply_event</code> / <code>get_reply_text</code> if you need the message the user replied to.</p>
 <h3 id="utilsget_argsmx-event-list"><code>utils.get_args(mx, event) -&gt; list</code></h3>
 <p>Same, but <code>shlex.split()</code>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">args</span> <span class="o">=</span> <span class="k">await</span> <span class="n">utils</span><span class="o">.</span><span class="n">get_args</span><span class="p">(</span><span class="n">mx</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span>
