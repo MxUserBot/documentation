@@ -65,7 +65,9 @@ plugins:
             FSM: FSM
             Безопасность: Security System
             ZIP модули: ZIP Modules
+            Распространение модулей: Distribute Modules
             Справочник utils: Utils Reference
+            Обзор: Overview
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -86,27 +88,27 @@ markdown_extensions:
 
 nav:
   - Главная: index.md
-  - Преимущества: 6-pros-cons.md
+  - Преимущества: pros-cons.md
+  - Как это работает: how-it-works.md
+  - Ключевые концепции: key-concepts.md
   - Системные модули:
-    - PingPong: system_modules/01-ping.md
-    - Helper: system_modules/02-help.md
-    - Prefix: system_modules/03-set_prefix.md
-    - Security: system_modules/04-sudo.md
-    - Verifier: system_modules/05-verif.md
-    - Shell: system_modules/06-shell.md
-    - Loader: system_modules/07-loader.md
+    - PingPong: system_modules/ping.md
+    - Helper: system_modules/help.md
+    - Prefix: system_modules/prefix.md
+    - Security: system_modules/sudo.md
+    - Verifier: system_modules/verif.md
+    - Shell: system_modules/shell.md
+    - Loader: system_modules/loader.md
   - Разработка модулей:
-    - Как это работает: 2-how-it-works.md
-    - Ключевые концепции: 0-key-concepts.md
-    - SAS верификация: 1-sas-verification.md
-    - Эмодзи коллбеки: 3-emoji-callbacks.md
-    - Написание модулей:
-      - Введение: writing-modules/00-index.md
-      - База: writing-modules/01-basics.md
-      - Команды: writing-modules/02-commands.md
-      - Ответы и утилиты: writing-modules/03-answer.md
-      - Watcher/Cron/Events: writing-modules/04-watcher-cron-events.md
-      - FSM: writing-modules/05-fsm.md
-    - Безопасность: 5-security.md
-    - ZIP модули: writing-modules/7-zip-modules.md
-    - Справочник utils: writing-modules/8-utils-reference.md
+    - Обзор: writing-modules/index.md
+    - База: writing-modules/basics.md
+    - Команды: writing-modules/commands.md
+    - Ответы и утилиты: writing-modules/answer-utils.md
+    - Watcher/Cron/Events: writing-modules/watcher-cron-events.md
+    - FSM: writing-modules/fsm.md
+    - Эмодзи коллбеки: writing-modules/emoji-callbacks.md
+    - Безопасность: writing-modules/security.md
+    - ZIP модули: writing-modules/zip-modules.md
+    - Распространение модулей: writing-modules/distribute.md
+    - Справочник utils: writing-modules/utils-reference.md
+    - SAS верификация: writing-modules/sas-verification.md

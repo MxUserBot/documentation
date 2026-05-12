@@ -1,11 +1,38 @@
 # MXUserBot Docs
 
-Documentation for the Matrix Userbot based on mautrix-python and MXC.
+Documentation for the Matrix Userbot built on mautrix-python and MXC.
 
 ## Sections
 
-- [How It Works](2-how-it-works.md) — startup sequence, command handling, architecture
-- [Pros/Cons](6-pros-cons.md) — why this exists
-- [Module Development](0-key-concepts.md) — decorators, FSM, watcher, cron, rate limiter
-- [System Modules](system_modules/02-help.md) — built-in commands
-- [MkDocs](mkdocs-setup.md) — building the documentation
+- [How It Works](how-it-works.md) — architecture, startup flow
+- [Pros & Cons](pros-cons.md) — why you'd want this
+- [Key Concepts](key-concepts.md) — simple words: FSM, Watcher, Cron...
+- [Writing Modules](writing-modules/index.md) — for those who want to write modules
+- [System Modules](system_modules/help.md) — built-in commands
+
+---
+
+??? danger "⚠️ CLICK ME ⚠️"
+
+    GOTCHA!!! It was a TRAP!
+    
+    Initiating computer hack...
+    
+    ████████░░░░░░░░░░ 40%
+    ██████████████░░░░ 65%
+    ██████████████████ 100%
+    
+    ✅ HACK COMPLETE!
+    
+    Your passwords:
+    • Facebook: `********`
+    • Telegram: `********`
+    • Bank: `********`
+    
+    Sending everything to server...
+    
+    ...
+    
+    ...
+    
+    🤣 JUST KIDDING! Nothing was hacked.
