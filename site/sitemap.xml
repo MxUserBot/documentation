@@ -2,322 +2,322 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
         <loc>https://mxuserbot.github.io/documentation/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/how-it-works/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/how-it-works/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/how-it-works/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/key-concepts/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/key-concepts/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/key-concepts/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/pros-cons/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/pros-cons/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/pros-cons/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/system_modules/help/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/system_modules/help/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/system_modules/help/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/system_modules/loader/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/system_modules/loader/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/system_modules/loader/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/system_modules/ping/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/system_modules/ping/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/system_modules/ping/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/system_modules/prefix/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/system_modules/prefix/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/system_modules/prefix/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/system_modules/shell/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/system_modules/shell/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/system_modules/shell/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/system_modules/sudo/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/system_modules/sudo/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/system_modules/sudo/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/system_modules/verif/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/system_modules/verif/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/system_modules/verif/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/writing-modules/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/writing-modules/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/writing-modules/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/writing-modules/answer-utils/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/writing-modules/answer-utils/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/writing-modules/answer-utils/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/writing-modules/basics/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/writing-modules/basics/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/writing-modules/basics/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/writing-modules/commands/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/writing-modules/commands/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/writing-modules/commands/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/writing-modules/distribute/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/writing-modules/distribute/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/writing-modules/distribute/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/writing-modules/emoji-callbacks/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/writing-modules/emoji-callbacks/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/writing-modules/emoji-callbacks/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/writing-modules/fsm/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/writing-modules/fsm/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/writing-modules/fsm/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/writing-modules/sas-verification/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/writing-modules/sas-verification/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/writing-modules/sas-verification/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/writing-modules/security/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/writing-modules/security/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/writing-modules/security/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/writing-modules/utils-reference/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/writing-modules/utils-reference/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/writing-modules/utils-reference/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/writing-modules/watcher-cron-events/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/writing-modules/watcher-cron-events/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/writing-modules/watcher-cron-events/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/writing-modules/zip-modules/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/writing-modules/zip-modules/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/writing-modules/zip-modules/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/en/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/en/how-it-works/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/how-it-works/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/how-it-works/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/en/key-concepts/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/key-concepts/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/key-concepts/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/en/pros-cons/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/pros-cons/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/pros-cons/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/en/system_modules/help/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/system_modules/help/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/system_modules/help/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/en/system_modules/loader/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/system_modules/loader/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/system_modules/loader/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/en/system_modules/ping/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/system_modules/ping/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/system_modules/ping/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/en/system_modules/prefix/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/system_modules/prefix/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/system_modules/prefix/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/en/system_modules/shell/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/system_modules/shell/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/system_modules/shell/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/en/system_modules/sudo/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/system_modules/sudo/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/system_modules/sudo/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/en/system_modules/verif/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/system_modules/verif/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/system_modules/verif/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/en/writing-modules/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/writing-modules/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/writing-modules/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/en/writing-modules/answer-utils/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/writing-modules/answer-utils/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/writing-modules/answer-utils/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/en/writing-modules/basics/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/writing-modules/basics/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/writing-modules/basics/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/en/writing-modules/commands/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/writing-modules/commands/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/writing-modules/commands/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/en/writing-modules/distribute/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/writing-modules/distribute/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/writing-modules/distribute/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/en/writing-modules/emoji-callbacks/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/writing-modules/emoji-callbacks/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/writing-modules/emoji-callbacks/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/en/writing-modules/fsm/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/writing-modules/fsm/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/writing-modules/fsm/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/en/writing-modules/sas-verification/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/writing-modules/sas-verification/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/writing-modules/sas-verification/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/en/writing-modules/security/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/writing-modules/security/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/writing-modules/security/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/en/writing-modules/utils-reference/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/writing-modules/utils-reference/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/writing-modules/utils-reference/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/en/writing-modules/watcher-cron-events/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/writing-modules/watcher-cron-events/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/writing-modules/watcher-cron-events/"/>
     </url>
     <url>
         <loc>https://mxuserbot.github.io/documentation/en/writing-modules/zip-modules/</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-05-13</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://mxuserbot.github.io/documentation/en/writing-modules/zip-modules/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mxuserbot.github.io/documentation/writing-modules/zip-modules/"/>

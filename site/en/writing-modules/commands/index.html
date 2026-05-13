@@ -1353,10 +1353,9 @@
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;&lt;lang&gt; &lt;text&gt; - translate&quot;&quot;&quot;</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="c1"># .tr ru hello world → lang=&quot;ru&quot;, text=&quot;hello world&quot;</span>
 </code></pre></div>
-If the default is <code>None</code> and the function doesn't substitute anything for <code>None</code> — the help for this function will be shown.</p>
-<p>For example, if you type <code>.tr</code>
-the <code>text</code> variable stays <code>None</code>.</p>
-<p>You can also grab text from replying to a message.</p>
+If an argument with <code>None</code> default stays <code>None</code> (user didn't provide it) — the bot will show the command help.</p>
+<p>For example <code>.tr</code> without arguments: <code>lang="en"</code> (has default), <code>text=None</code> (no argument) → shows help.</p>
+<p>But if the user replied to someone's message with <code>.tr</code> — the bot can grab text from the reply instead of an argument. This works automatically.</p>
 <h3 id="type-2-pydantic-basemodel">Type 2: Pydantic BaseModel</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">Field</span><span class="p">,</span> <span class="n">model_validator</span><span class="p">,</span> <span class="n">ConfigDict</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>

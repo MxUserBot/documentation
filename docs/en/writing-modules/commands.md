@@ -32,12 +32,11 @@ async def tr(self, mx, event, lang: str = "en", text: str = None):
     """<lang> <text> - translate"""
     # .tr ru hello world → lang="ru", text="hello world"
 ```
-If the default is `None` and the function doesn't substitute anything for `None` — the help for this function will be shown.
+If an argument with `None` default stays `None` (user didn't provide it) — the bot will show the command help.
 
-For example, if you type `.tr`
-the `text` variable stays `None`.
+For example `.tr` without arguments: `lang="en"` (has default), `text=None` (no argument) → shows help.
 
-You can also grab text from replying to a message.
+But if the user replied to someone's message with `.tr` — the bot can grab text from the reply instead of an argument. This works automatically.
 
 ### Type 2: Pydantic BaseModel
 

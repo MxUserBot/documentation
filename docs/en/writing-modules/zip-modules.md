@@ -4,13 +4,13 @@ When a module grows past 300+ lines, keeping everything in one file becomes pain
 
 ```
 my_module.zip
-└── my_module/                  <- Root folder = module name
-    ├── __init__.py             <- Meta + class Module (required)
-    ├── helpers.py              <- Helper functions
-    ├── models.py               <- Pydantic models
+└── my_module/                  <- root folder (name can be anything)
+    ├── __init__.py             <- entry point (required)
+    ├── helpers.py              <- helper functions
+    ├── models.py               <- models
     └── services/
         ├── __init__.py
-        └── api.py              <- API call logic
+        └── api.py              <- API logic
 ```
 
 ## How Does It Work?
@@ -135,8 +135,7 @@ Though of course, nobody's forcing you: you can write 3k lines in a single .py :
 
 ## Important
 
-- `class Meta` must be **in `__init__.py`**, not inside the Module class
-- The root folder name inside the ZIP = module name
+- `__init__.py` is the entry point. It **must** contain `class Meta` and **either** `class XxxModule`, or import the Module from another file in the package
 - All helper `.py` files are imported recursively
 - If there are subfolders — they also get imported (as submodules)
-- `__init__.py` doesn't have to contain the Module class — it can be in any file in the package
+- `__init__.py` does NOT have to contain `class Module` — it can be imported from another file in the package

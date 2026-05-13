@@ -2,17 +2,17 @@
 
 ## Advantages
 
-### 1. You are the bot
+### 1. Commands in your name
 
-The userbot runs under your account. No need to create a separate bot, configure it, invite it to rooms. All your rooms are available right away.
+The userbot runs under your account, commands are executed on your behalf. No need to use other bots (in most cases) — there are modules to cover your needs.
 
-### 2. Minimal external dependencies
+### 2. No separate homeserver needed
 
-All you need is Python + access to a Matrix server. No need for:
-- A separate server for the bot
-- Complex setup
+With the [rate limiter](key-concepts.md#rate-limiter--ban-protection) — the bot can run on any server, within the server's limits of course.
 
-Basically: install UV, clone the repo, run it — it works.
+Main dependency: [uv](https://docs.astral.sh/uv/).
+
+No complex setup required: everything is configured either through the web panel or via Matrix chat.
 
 ### 3. Built-in module repository
 
@@ -20,10 +20,15 @@ The system repository is connected by default.
 
 Any module from there installs with one command:
 ```
-.mdl module_name
+.mdl miku
 ```
 
-You can add your own repositories:
+You can add third-party repositories, then modules install like:
+```
+.mdl Pasha/miku
+```
+
+Add a repository:
 ```
 .addrepo https://github.com/user/repo
 ```
@@ -41,13 +46,12 @@ If you spam reactions, mass-delete messages — the Matrix server may give you a
 Rate Limiter automatically:
 - Slows down requests if the server complains
 - Gradually speeds back up when things are fine
-- Uses the AIMD algorithm like TCP
 
 You don't need to worry.
 
 ### 6. Web panel
 
-FastAPI web interface for first login, managing modules and config. No need to touch the console.
+FastAPI web interface for first login, managing modules and config. Convenient UX if you don't want to set everything up through chat.
 
 ### 7. Community code security
 
@@ -61,7 +65,17 @@ A malicious module can't leak your keys or execute shell commands.
 
 ### 8. SAS verification
 
-Verify devices directly from the bot, without external tools. Full cycle:
-```
-request → emoji → MAC → done
-```
+Verification works in two ways:
+
+1. **Bot verification** — so the bot can work properly in encrypted rooms and see past messages, you should verify it. Only SAS (emoji verification) is available. Wait 5 to 20 seconds — the bot accepts your request and you can confirm. Currently comparing your emojis with the bot's is not available. Will be added later. After verification, the bot will store both your keys and its own.
+
+2. **Verifying another device** — works like this:
+   - `.devices` — list all your devices
+   - Find the device ID
+   - `.verif <id>` — start verification
+   - Bot sends a verification request to the chat — you confirm
+   - Bot shows emojis — you compare, confirm
+
+Done! The bot shares keys and marks the device as verified in the local database.
+
+Details: [SAS Verification](writing-modules/sas-verification.md)

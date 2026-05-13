@@ -1353,10 +1353,9 @@
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;&lt;lang&gt; &lt;text&gt; - перевод&quot;&quot;&quot;</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="c1"># .tr ru привет мир → lang=&quot;ru&quot;, text=&quot;привет мир&quot;</span>
 </code></pre></div>
-Если по умолчанию будет None, и функция ничего не подставит вместо None - вызовется Help этой функции.</p>
-<p>На пример мы укажем .tr 
-переменная text останется None.</p>
-<p>В тоже время, мы можем брать текст из реплая на сообщение.</p>
+Если аргумент со значением <code>None</code> остался <code>None</code> (пользователь не передал) — бот покажет хелп команды.</p>
+<p>Например <code>.tr</code> без аргументов: <code>lang="en"</code> (есть дефолт), <code>text=None</code> (нет аргумента) → показать хелп.</p>
+<p>Но если пользователь ответил на чьё-то сообщение своим <code>.tr</code> — бот может взять текст из реплая вместо аргумента. Это работает автоматически.</p>
 <h3 id="2-pydantic-basemodel">Тип 2: Pydantic BaseModel</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">Field</span><span class="p">,</span> <span class="n">model_validator</span><span class="p">,</span> <span class="n">ConfigDict</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>

@@ -109,7 +109,10 @@ strings = {
 }
 ```
 
-All module text goes here. Without `strings` the module won't load.
+**Why is this needed?**
+- Convenience: all text in one place, not scattered across the code
+- Don't wanna bother? Leave `strings = {}` empty
+- Future: strings are needed for the translation system (i18n)
 
 You can use HTML:
 ```python
@@ -160,6 +163,69 @@ class MyModule(loader.Module):
 
 ---
 
+## Database (key-value)
+
+Every module has access to the database via `self._get` and `self._set`.
+
+```python
+# Save a value
+await self._set("my_key", "my_value")
+await self._set("counter", 42)
+
+# Read a value
+value = await self._get("my_key")       # → "my_value"
+counter = await self._get("counter", 0) # → 42 (default if missing)
+
+# Delete (pass None — it gets deleted)
+await self._set("my_key", None)
+```
+
+**Note:** Community modules only see THEIR OWN keys. ScopedDatabase automatically prefixes keys with the module name.
+
+Counter example:
+
+```python
+@loader.command()
+async def counter(self, mx, event):
+    """Command counter"""
+    count = await self._get("count", 0)
+    count += 1
+    await self._set("count", count)
+    await utils.answer(mx, f"Count: {count}", event=event)
+```
+
+---
+
+## config — module settings
+
+Via `config` the user can configure the module without touching the code.
+
+```python
+config = {
+    "api_key": loader.ConfigValue(
+        default=None, description="API key", required=True,
+    ),
+    "delay": loader.ConfigValue(
+        default=5, description="Delay (sec)",
+        validator=lambda x: isinstance(x, int) and x >= 0,
+    ),
+}
+```
+
+- `required=True` — won't let anyone use commands until it's filled in
+- `default=None` — if required, always set None, not an empty string
+- `validator` — validation function, returns True/False
+
+Accessing config:
+```python
+self.config.get("api_key")        # read
+self.config["api_key"]            # read (short)
+self.config.set("api_key", val)   # write
+await self.config.set_async("api_key", val)  # write (async)
+```
+
+---
+
 ## Logging
 
 ```python
@@ -196,6 +262,5 @@ The bot will automatically show the command help.
 2. **`@loader.tds`** — required above the class
 3. **`strings = {}`** — required inside the class
 4. Class name must contain `Module` at the end (`HelloModule`, `WikipediaModule`)
-5. Don't use `event.reply` — only `utils.answer(mx, text, event=event)`
-6. Community modules only see their own data in the DB (ScopedDatabase)
-7. Don't touch `sys`, `subprocess`, `socket` — the firewall won't let you
+5. Community modules only see their own data in the DB (ScopedDatabase)
+6. Don't touch `sys`, `subprocess`, `socket` — the firewall won't let you

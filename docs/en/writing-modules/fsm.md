@@ -42,8 +42,6 @@ The state handler receives `ctx` — the context:
 
 ## Simplest Example — WITHOUT Pydantic
 
-This is a raw implementation. We take text directly from `event.content.body`:
-
 ```python
 from mxc.fsm import StatesGroup, State
 from mxc import utils

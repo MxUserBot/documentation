@@ -1277,13 +1277,13 @@
 <h1 id="zip-modules">ZIP Modules</h1>
 <p>When a module grows past 300+ lines, keeping everything in one file becomes painful. A ZIP module is a packaged folder (package) with <code>__init__.py</code> and helper files.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>my_module.zip
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>└── my_module/                  &lt;- Root folder = module name
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    ├── __init__.py             &lt;- Meta + class Module (required)
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    ├── helpers.py              &lt;- Helper functions
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    ├── models.py               &lt;- Pydantic models
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>└── my_module/                  &lt;- root folder (name can be anything)
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    ├── __init__.py             &lt;- entry point (required)
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    ├── helpers.py              &lt;- helper functions
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    ├── models.py               &lt;- models
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    └── services/
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        ├── __init__.py
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        └── api.py              &lt;- API call logic
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        └── api.py              &lt;- API logic
 </code></pre></div>
 <h2 id="how-does-it-work">How Does It Work?</h2>
 <ol>
@@ -1405,11 +1405,10 @@
 </table>
 <h2 id="important">Important</h2>
 <ul>
-<li><code>class Meta</code> must be <strong>in <code>__init__.py</code></strong>, not inside the Module class</li>
-<li>The root folder name inside the ZIP = module name</li>
+<li><code>__init__.py</code> is the entry point. It <strong>must</strong> contain <code>class Meta</code> and <strong>either</strong> <code>class XxxModule</code>, or import the Module from another file in the package</li>
 <li>All helper <code>.py</code> files are imported recursively</li>
 <li>If there are subfolders — they also get imported (as submodules)</li>
-<li><code>__init__.py</code> doesn't have to contain the Module class — it can be in any file in the package</li>
+<li><code>__init__.py</code> does NOT have to contain <code>class Module</code> — it can be imported from another file in the package</li>
 </ul>
 
 

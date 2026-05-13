@@ -938,7 +938,7 @@
   <a href="#pydantic" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Простейший пример — БЕЗ Pydantic
+        Простейший пример БЕЗ Pydantic
       
     </span>
   </a>
@@ -1032,7 +1032,7 @@
   <a href="#fsm_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        FSM — под капотом
+        FSM — как это устроено
       
     </span>
   </a>
@@ -1286,7 +1286,7 @@
   <a href="#pydantic" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Простейший пример — БЕЗ Pydantic
+        Простейший пример БЕЗ Pydantic
       
     </span>
   </a>
@@ -1380,7 +1380,7 @@
   <a href="#fsm_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        FSM — под капотом
+        FSM — как это устроено
       
     </span>
   </a>
@@ -1469,8 +1469,7 @@
 </tbody>
 </table>
 <hr />
-<h2 id="pydantic">Простейший пример — БЕЗ Pydantic</h2>
-<p>Это сырая реализация. Берем текст напрямую из <code>event.content.body</code>:</p>
+<h2 id="pydantic">Простейший пример БЕЗ Pydantic</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">mxc.fsm</span><span class="w"> </span><span class="kn">import</span> <span class="n">StatesGroup</span><span class="p">,</span> <span class="n">State</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">mxc</span><span class="w"> </span><span class="kn">import</span> <span class="n">utils</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">..</span><span class="w"> </span><span class="kn">import</span> <span class="n">loader</span>
@@ -1502,31 +1501,27 @@
 <a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>    <span class="nd">@loader</span><span class="o">.</span><span class="n">state</span><span class="p">(</span><span class="n">FormStates</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 <a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">got_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mx</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="n">ctx</span><span class="p">):</span>
 <a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Пользователь ввёл имя&quot;&quot;&quot;</span>
-<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>        <span class="n">name</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>
-<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>        <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">update_data</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
-<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>        <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">FormStates</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
-<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>
-<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>        <span class="k">await</span> <span class="n">utils</span><span class="o">.</span><span class="n">answer</span><span class="p">(</span>
-<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>            <span class="n">mx</span><span class="p">,</span>
-<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">strings</span><span class="p">[</span><span class="s2">&quot;ask_age&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">),</span>
-<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>            <span class="n">event</span><span class="o">=</span><span class="n">event</span><span class="p">,</span>
-<a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>        <span class="p">)</span>
-<a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a>
-<a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a>    <span class="nd">@loader</span><span class="o">.</span><span class="n">state</span><span class="p">(</span><span class="n">FormStates</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
-<a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">got_age</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mx</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="n">ctx</span><span class="p">):</span>
-<a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Пользователь ввёл возраст&quot;&quot;&quot;</span>
-<a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a>        <span class="n">age</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-<a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a>
-<a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a>        <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">update_data</span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="n">age</span><span class="p">)</span>
-<a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a>        <span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
-<a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a>        <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-<a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a>
-<a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a>        <span class="k">await</span> <span class="n">utils</span><span class="o">.</span><span class="n">answer</span><span class="p">(</span>
-<a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a>            <span class="n">mx</span><span class="p">,</span>
-<a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">strings</span><span class="p">[</span><span class="s2">&quot;done&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">),</span>
-<a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a>            <span class="n">event</span><span class="o">=</span><span class="n">event</span><span class="p">,</span>
-<a id="__codelineno-1-56" name="__codelineno-1-56" href="#__codelineno-1-56"></a>        <span class="p">)</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>        <span class="n">text</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>        <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">update_data</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">text</span><span class="p">)</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>        <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">FormStates</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>        <span class="k">await</span> <span class="n">utils</span><span class="o">.</span><span class="n">answer</span><span class="p">(</span>
+<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>            <span class="n">mx</span><span class="p">,</span>
+<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">strings</span><span class="p">[</span><span class="s2">&quot;ask_age&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">text</span><span class="p">),</span>
+<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>            <span class="n">event</span><span class="o">=</span><span class="n">event</span><span class="p">,</span>
+<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>        <span class="p">)</span>
+<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>
+<a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>    <span class="nd">@loader</span><span class="o">.</span><span class="n">state</span><span class="p">(</span><span class="n">FormStates</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
+<a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">got_age</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mx</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="n">ctx</span><span class="p">):</span>
+<a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Пользователь ввёл возраст&quot;&quot;&quot;</span>
+<a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a>        <span class="n">text</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a>        <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">update_data</span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="n">text</span><span class="p">)</span>
+<a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a>        <span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+<a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a>        <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a>        <span class="k">await</span> <span class="n">utils</span><span class="o">.</span><span class="n">answer</span><span class="p">(</span>
+<a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a>            <span class="n">mx</span><span class="p">,</span>
+<a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">strings</span><span class="p">[</span><span class="s2">&quot;done&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">),</span>
+<a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a>            <span class="n">event</span><span class="o">=</span><span class="n">event</span><span class="p">,</span>
+<a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a>        <span class="p">)</span>
 </code></pre></div>
 <hr />
 <h2 id="_1">Как это работает по шагам</h2>
@@ -1564,18 +1559,22 @@
 </tr>
 <tr>
 <td>7</td>
-<td>Обработчик сохраняет имя через <code>ctx.update_data()</code></td>
+<td>Обработчик берёт текст из сообщения через <code>event.content.body</code></td>
 </tr>
 <tr>
 <td>8</td>
-<td>Переходит к следующему состоянию: <code>ctx.set_state(FormStates.age)</code></td>
+<td>Сохраняет имя через <code>ctx.update_data()</code></td>
 </tr>
 <tr>
 <td>9</td>
-<td>И так далее...</td>
+<td>Переходит к следующему состоянию: <code>ctx.set_state(FormStates.age)</code></td>
 </tr>
 <tr>
 <td>10</td>
+<td>И так далее...</td>
+</tr>
+<tr>
+<td>11</td>
 <td>В конце: <code>ctx.clear()</code> чтобы сбросить состояние</td>
 </tr>
 </tbody>
@@ -1597,12 +1596,11 @@
 <a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>        <span class="k">return</span>
 <a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
 <a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">update_data</span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="n">age</span><span class="p">)</span>
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    <span class="c1"># ... дальше</span>
 </code></pre></div>
 <p><strong>Если пользователь ошибся</strong> — просто не вызывай <code>ctx.set_state()</code> и бот останется в том же состоянии.</p>
 <hr />
 <h2 id="fsm_1">Команды прерывают FSM</h2>
-<p>Если пользователь в середине диалога напишет <strong>любой команды</strong> (с точкой):
+<p>Если пользователь в середине диалога напишет команду (с точкой):
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>.help
 </code></pre></div></p>
 <p>Состояние <strong>автоматически сбросится</strong>. Это фича — не баг.</p>
@@ -1618,15 +1616,13 @@
 <a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="n">text</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 <a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
 <a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="k">if</span> <span class="n">text</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;да&quot;</span><span class="p">,</span> <span class="s2">&quot;yes&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;д&quot;</span><span class="p">]:</span>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>        <span class="c1"># делаем что-то</span>
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>        <span class="k">await</span> <span class="n">utils</span><span class="o">.</span><span class="n">answer</span><span class="p">(</span><span class="n">mx</span><span class="p">,</span> <span class="s2">&quot;✅ Подтверждено!&quot;</span><span class="p">,</span> <span class="n">event</span><span class="o">=</span><span class="n">event</span><span class="p">)</span>
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>        <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>    <span class="k">elif</span> <span class="n">text</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;нет&quot;</span><span class="p">,</span> <span class="s2">&quot;no&quot;</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="p">,</span> <span class="s2">&quot;н&quot;</span><span class="p">]:</span>
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>        <span class="k">await</span> <span class="n">utils</span><span class="o">.</span><span class="n">answer</span><span class="p">(</span><span class="n">mx</span><span class="p">,</span> <span class="s2">&quot;❌ Отменено&quot;</span><span class="p">,</span> <span class="n">event</span><span class="o">=</span><span class="n">event</span><span class="p">)</span>
-<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>        <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>        <span class="k">await</span> <span class="n">utils</span><span class="o">.</span><span class="n">answer</span><span class="p">(</span><span class="n">mx</span><span class="p">,</span> <span class="s2">&quot;Введи да или нет&quot;</span><span class="p">,</span> <span class="n">event</span><span class="o">=</span><span class="n">event</span><span class="p">)</span>
-<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>        <span class="c1"># остаёмся в том же состоянии</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>        <span class="k">await</span> <span class="n">utils</span><span class="o">.</span><span class="n">answer</span><span class="p">(</span><span class="n">mx</span><span class="p">,</span> <span class="s2">&quot;✅ Подтверждено!&quot;</span><span class="p">,</span> <span class="n">event</span><span class="o">=</span><span class="n">event</span><span class="p">)</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>        <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>    <span class="k">elif</span> <span class="n">text</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;нет&quot;</span><span class="p">,</span> <span class="s2">&quot;no&quot;</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="p">,</span> <span class="s2">&quot;н&quot;</span><span class="p">]:</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>        <span class="k">await</span> <span class="n">utils</span><span class="o">.</span><span class="n">answer</span><span class="p">(</span><span class="n">mx</span><span class="p">,</span> <span class="s2">&quot;❌ Отменено&quot;</span><span class="p">,</span> <span class="n">event</span><span class="o">=</span><span class="n">event</span><span class="p">)</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>        <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>        <span class="k">await</span> <span class="n">utils</span><span class="o">.</span><span class="n">answer</span><span class="p">(</span><span class="n">mx</span><span class="p">,</span> <span class="s2">&quot;Введи да или нет&quot;</span><span class="p">,</span> <span class="n">event</span><span class="o">=</span><span class="n">event</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="2">Пример 2: Пропуск шага</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">OptionalStates</span><span class="p">(</span><span class="n">StatesGroup</span><span class="p">):</span>
@@ -1639,18 +1635,15 @@
 <a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="n">text</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 <a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
 <a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    <span class="k">if</span> <span class="n">text</span> <span class="o">==</span> <span class="s2">&quot;-&quot;</span> <span class="ow">or</span> <span class="n">text</span> <span class="o">==</span> <span class="s2">&quot;skip&quot;</span><span class="p">:</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>        <span class="c1"># пользователь хочет пропустить</span>
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>        <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">update_data</span><span class="p">(</span><span class="n">bio</span><span class="o">=</span><span class="s2">&quot;не указано&quot;</span><span class="p">)</span>
-<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>        <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">update_data</span><span class="p">(</span><span class="n">bio</span><span class="o">=</span><span class="n">text</span><span class="p">)</span>
-<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
-<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>    <span class="c1"># ... дальше</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>        <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">update_data</span><span class="p">(</span><span class="n">bio</span><span class="o">=</span><span class="s2">&quot;не указано&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>        <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">update_data</span><span class="p">(</span><span class="n">bio</span><span class="o">=</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="3-ctxdata">Пример 3: ctx.data — сохраняем промежуточные данные</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nd">@loader</span><span class="o">.</span><span class="n">state</span><span class="p">(</span><span class="n">FormStates</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">step1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mx</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="n">ctx</span><span class="p">):</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="n">name</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">update_data</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="n">text</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">update_data</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">text</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">FormStates</span><span class="o">.</span><span class="n">next</span><span class="p">)</span>
 <a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
 <a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
@@ -1660,7 +1653,7 @@
 <a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    <span class="c1"># data = {&quot;name&quot;: &quot;Миша&quot;, &quot;step&quot;: 1}</span>
 </code></pre></div>
 <hr />
-<h2 id="fsm_2">FSM — под капотом</h2>
+<h2 id="fsm_2">FSM — как это устроено</h2>
 <p>Состояния хранятся так:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="s2">&quot;!room:server:@user:server&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -1693,9 +1686,7 @@
 <a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>
 <a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="nd">@loader</span><span class="o">.</span><span class="n">state</span><span class="p">(</span><span class="n">FormStates</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
 <a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">got_age</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mx</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">payload</span><span class="p">:</span> <span class="n">AgePayload</span><span class="p">):</span>
-<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>    <span class="c1"># payload.age уже int и уже проверен</span>
-<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>    <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">update_data</span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="n">payload</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
-<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>    <span class="c1"># ...</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>    <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">update_data</span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="n">payload</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
 </code></pre></div>
 <p>Если валидация не прошла — бот отправит ошибку и <strong>останется в том же состоянии</strong>.</p>
 <hr />

@@ -393,10 +393,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-you-are-the-bot" class="md-nav__link">
+  <a href="#1-commands-in-your-name" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. You are the bot
+        1. Commands in your name
       
     </span>
   </a>
@@ -404,10 +404,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-minimal-external-dependencies" class="md-nav__link">
+  <a href="#2-no-separate-homeserver-needed" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Minimal external dependencies
+        2. No separate homeserver needed
       
     </span>
   </a>
@@ -1240,10 +1240,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-you-are-the-bot" class="md-nav__link">
+  <a href="#1-commands-in-your-name" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. You are the bot
+        1. Commands in your name
       
     </span>
   </a>
@@ -1251,10 +1251,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-minimal-external-dependencies" class="md-nav__link">
+  <a href="#2-no-separate-homeserver-needed" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Minimal external dependencies
+        2. No separate homeserver needed
       
     </span>
   </a>
@@ -1354,20 +1354,22 @@
 
 <h1 id="why-even-bother">WHY EVEN BOTHER?</h1>
 <h2 id="advantages">Advantages</h2>
-<h3 id="1-you-are-the-bot">1. You are the bot</h3>
-<p>The userbot runs under your account. No need to create a separate bot, configure it, invite it to rooms. All your rooms are available right away.</p>
-<h3 id="2-minimal-external-dependencies">2. Minimal external dependencies</h3>
-<p>All you need is Python + access to a Matrix server. No need for:
-- A separate server for the bot
-- Complex setup</p>
-<p>Basically: install UV, clone the repo, run it — it works.</p>
+<h3 id="1-commands-in-your-name">1. Commands in your name</h3>
+<p>The userbot runs under your account, commands are executed on your behalf. No need to use other bots (in most cases) — there are modules to cover your needs.</p>
+<h3 id="2-no-separate-homeserver-needed">2. No separate homeserver needed</h3>
+<p>With the <a href="../key-concepts/#rate-limiter--ban-protection">rate limiter</a> — the bot can run on any server, within the server's limits of course.</p>
+<p>Main dependency: <a href="https://docs.astral.sh/uv/">uv</a>.</p>
+<p>No complex setup required: everything is configured either through the web panel or via Matrix chat.</p>
 <h3 id="3-built-in-module-repository">3. Built-in module repository</h3>
 <p>The system repository is connected by default.</p>
 <p>Any module from there installs with one command:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>.mdl module_name
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>.mdl miku
 </code></pre></div></p>
-<p>You can add your own repositories:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>.addrepo https://github.com/user/repo
+<p>You can add third-party repositories, then modules install like:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>.mdl Pasha/miku
+</code></pre></div></p>
+<p>Add a repository:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>.addrepo https://github.com/user/repo
 </code></pre></div></p>
 <h3 id="4-emoji-callbacks-instead-of-buttons">4. Emoji callbacks instead of buttons</h3>
 <p>Matrix doesn't have inline buttons like Telegram. But it has reactions (emojis). And they work as buttons.</p>
@@ -1376,11 +1378,10 @@
 <p>If you spam reactions, mass-delete messages — the Matrix server may give you a 429 (M_LIMIT_EXCEEDED) or even ban you.</p>
 <p>Rate Limiter automatically:
 - Slows down requests if the server complains
-- Gradually speeds back up when things are fine
-- Uses the AIMD algorithm like TCP</p>
+- Gradually speeds back up when things are fine</p>
 <p>You don't need to worry.</p>
 <h3 id="6-web-panel">6. Web panel</h3>
-<p>FastAPI web interface for first login, managing modules and config. No need to touch the console.</p>
+<p>FastAPI web interface for first login, managing modules and config. Convenient UX if you don't want to set everything up through chat.</p>
 <h3 id="7-community-code-security">7. Community code security</h3>
 <p>Community modules run in a sandbox:
 - AST analysis before loading
@@ -1389,9 +1390,22 @@
 - Frozen core modules — built-in modules can't be modified</p>
 <p>A malicious module can't leak your keys or execute shell commands.</p>
 <h3 id="8-sas-verification">8. SAS verification</h3>
-<p>Verify devices directly from the bot, without external tools. Full cycle:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>request → emoji → MAC → done
-</code></pre></div></p>
+<p>Verification works in two ways:</p>
+<ol>
+<li>
+<p><strong>Bot verification</strong> — so the bot can work properly in encrypted rooms and see past messages, you should verify it. Only SAS (emoji verification) is available. Wait 5 to 20 seconds — the bot accepts your request and you can confirm. Currently comparing your emojis with the bot's is not available. Will be added later. After verification, the bot will store both your keys and its own.</p>
+</li>
+<li>
+<p><strong>Verifying another device</strong> — works like this:</p>
+</li>
+<li><code>.devices</code> — list all your devices</li>
+<li>Find the device ID</li>
+<li><code>.verif &lt;id&gt;</code> — start verification</li>
+<li>Bot sends a verification request to the chat — you confirm</li>
+<li>Bot shows emojis — you compare, confirm</li>
+</ol>
+<p>Done! The bot shares keys and marks the device as verified in the local database.</p>
+<p>Details: <a href="../writing-modules/sas-verification/">SAS Verification</a></p>
 
 
 

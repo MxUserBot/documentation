@@ -40,9 +40,7 @@ class AskStates(StatesGroup):
 
 ---
 
-## Простейший пример — БЕЗ Pydantic
-
-Это сырая реализация. Берем текст напрямую из `event.content.body`:
+## Простейший пример БЕЗ Pydantic
 
 ```python
 from mxc.fsm import StatesGroup, State
@@ -76,26 +74,22 @@ class FormModule(loader.Module):
     @loader.state(FormStates.name)
     async def got_name(self, mx, event, ctx):
         """Пользователь ввёл имя"""
-        name = event.content.body.strip()
-        
-        await ctx.update_data(name=name)
+        text = event.content.body.strip()
+        await ctx.update_data(name=text)
         await ctx.set_state(FormStates.age)
-        
         await utils.answer(
             mx,
-            self.strings["ask_age"].format(name=name),
+            self.strings["ask_age"].format(name=text),
             event=event,
         )
 
     @loader.state(FormStates.age)
     async def got_age(self, mx, event, ctx):
         """Пользователь ввёл возраст"""
-        age = event.content.body.strip()
-        
-        await ctx.update_data(age=age)
+        text = event.content.body.strip()
+        await ctx.update_data(age=text)
         data = await ctx.get_data()
         await ctx.clear()
-        
         await utils.answer(
             mx,
             self.strings["done"].format(**data),
@@ -115,10 +109,11 @@ class FormModule(loader.Module):
 | 4 | Пользователь отвечает: `Миша` — **ЭТО НЕ КОМАНДА, без точки** |
 | 5 | Бот видит что есть активное состояние `FormStates.name` |
 | 6 | Вызывает обработчик `@loader.state(FormStates.name)` |
-| 7 | Обработчик сохраняет имя через `ctx.update_data()` |
-| 8 | Переходит к следующему состоянию: `ctx.set_state(FormStates.age)` |
-| 9 | И так далее... |
-| 10 | В конце: `ctx.clear()` чтобы сбросить состояние |
+| 7 | Обработчик берёт текст из сообщения через `event.content.body` |
+| 8 | Сохраняет имя через `ctx.update_data()` |
+| 9 | Переходит к следующему состоянию: `ctx.set_state(FormStates.age)` |
+| 10 | И так далее... |
+| 11 | В конце: `ctx.clear()` чтобы сбросить состояние |
 
 ---
 
@@ -141,7 +136,6 @@ async def got_age(self, mx, event, ctx):
         return
     
     await ctx.update_data(age=age)
-    # ... дальше
 ```
 
 **Если пользователь ошибся** — просто не вызывай `ctx.set_state()` и бот останется в том же состоянии.
@@ -150,7 +144,7 @@ async def got_age(self, mx, event, ctx):
 
 ## Команды прерывают FSM
 
-Если пользователь в середине диалога напишет **любой команды** (с точкой):
+Если пользователь в середине диалога напишет команду (с точкой):
 ```
 .help
 ```
@@ -173,7 +167,6 @@ async def got_confirm(self, mx, event, ctx):
     text = event.content.body.strip().lower()
     
     if text in ["да", "yes", "y", "д"]:
-        # делаем что-то
         await utils.answer(mx, "✅ Подтверждено!", event=event)
         await ctx.clear()
     elif text in ["нет", "no", "n", "н"]:
@@ -181,7 +174,6 @@ async def got_confirm(self, mx, event, ctx):
         await ctx.clear()
     else:
         await utils.answer(mx, "Введи да или нет", event=event)
-        # остаёмся в том же состоянии
 ```
 
 ### Пример 2: Пропуск шага
@@ -197,12 +189,9 @@ async def got_bio(self, mx, event, ctx):
     text = event.content.body.strip()
     
     if text == "-" or text == "skip":
-        # пользователь хочет пропустить
         await ctx.update_data(bio="не указано")
     else:
         await ctx.update_data(bio=text)
-    
-    # ... дальше
 ```
 
 ### Пример 3: ctx.data — сохраняем промежуточные данные
@@ -210,8 +199,8 @@ async def got_bio(self, mx, event, ctx):
 ```python
 @loader.state(FormStates.name)
 async def step1(self, mx, event, ctx):
-    name = event.content.body.strip()
-    await ctx.update_data(name=name, step=1)
+    text = event.content.body.strip()
+    await ctx.update_data(name=text, step=1)
     await ctx.set_state(FormStates.next)
 
 
@@ -223,7 +212,7 @@ async def step2(self, mx, event, ctx):
 
 ---
 
-## FSM — под капотом
+## FSM — как это устроено
 
 Состояния хранятся так:
 ```python
@@ -264,9 +253,7 @@ class AgePayload(BaseModel):
 
 @loader.state(FormStates.age)
 async def got_age(self, mx, event, ctx, payload: AgePayload):
-    # payload.age уже int и уже проверен
     await ctx.update_data(age=payload.age)
-    # ...
 ```
 
 Если валидация не прошла — бот отправит ошибку и **останется в том же состоянии**.

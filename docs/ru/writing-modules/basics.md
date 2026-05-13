@@ -109,7 +109,10 @@ strings = {
 }
 ```
 
-Все тексты модуля хранятся здесь. Без `strings` модуль не загрузится.
+**Зачем это нужно?**
+- Удобно: все тексты в одном месте, а не раскиданы по коду
+- Не хочешь париться — оставь `strings = {}` пустым
+- В будущем: strings нужен для системы переводов (i18n)
 
 Можно использовать HTML:
 ```python
@@ -160,6 +163,69 @@ class MyModule(loader.Module):
 
 ---
 
+## База данных (ключ-значение)
+
+Каждый модуль имеет доступ к БД через `self._get` и `self._set`.
+
+```python
+# Сохранить значение
+await self._set("my_key", "my_value")
+await self._set("counter", 42)
+
+# Прочитать значение
+value = await self._get("my_key")       # → "my_value"
+counter = await self._get("counter", 0) # → 42 (default если нет)
+
+# Удалить (если передать None — удаляется)
+await self._set("my_key", None)
+```
+
+**Важно:** Community модули видят ТОЛЬКО свои ключи. ScopedDatabase автоматически меняет префикс на имя твоего модуля.
+
+Пример счётчика:
+
+```python
+@loader.command()
+async def counter(self, mx, event):
+    """Счётчик вызовов"""
+    count = await self._get("count", 0)
+    count += 1
+    await self._set("count", count)
+    await utils.answer(mx, f"Счётчик: {count}", event=event)
+```
+
+---
+
+## config — настройки модуля
+
+Через `config` пользователь может настраивать модуль не залезая в код.
+
+```python
+config = {
+    "api_key": loader.ConfigValue(
+        default=None, description="API ключ", required=True,
+    ),
+    "delay": loader.ConfigValue(
+        default=5, description="Задержка (сек)",
+        validator=lambda x: isinstance(x, int) and x >= 0,
+    ),
+}
+```
+
+- `required=True` — не даст юзать команды пока не заполнено
+- `default=None` — если required, обязательно ставь None, а не пустую строку
+- `validator` — функция проверки, возвращает True/False
+
+Доступ к config:
+```python
+self.config.get("api_key")        # прочитать
+self.config["api_key"]            # прочитать (коротко)
+self.config.set("api_key", val)   # установить
+await self.config.set_async("api_key", val)  # установить (async)
+```
+
+---
+
 ## Логгирование
 
 ```python
@@ -196,6 +262,5 @@ async def give(self, mx, event, who: str = None):
 2. **`@loader.tds`** — обязательно над классом
 3. **`strings = {}`** — обязательно внутри класса
 4. Имя класса должно содержать `Module` в конце (`HelloModule`, `WikipediaModule`)
-5. Не используй `event.reply` — только `utils.answer(mx, text, event=event)`
-6. Community модули видят только свои данные в БД (ScopedDatabase)
-7. Не лезь в `sys`, `subprocess`, `socket` — файрвол не пустит
+5. Community модули видят только свои данные в БД (ScopedDatabase)
+6. Не лезь в `sys`, `subprocess`, `socket` — файрвол не пустит
